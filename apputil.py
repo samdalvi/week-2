@@ -1,6 +1,5 @@
 import numpy as np
 
-
 # update/add code below ...
 
 def ways(n):
@@ -22,6 +21,9 @@ def lowest_score(names, scores):
     Return the name of the student with the lowest score.
     Uses NumPy's argmin function to find the index of the minimum score.
     """
+    names = np.array(names)
+    scores = np.array(scores)
+    
     min_index = np.argmin(scores)
     return names[min_index]
 
@@ -31,6 +33,9 @@ def sort_names(names, scores):
     Return a list of student names sorted by their scores in descending order
     (highest to lowest).
     """
+    names = np.array(names)
+    scores = np.array(scores)
+    
     # argsort gives ascending order, so we reverse with [::-1]
     sorted_indices = np.argsort(scores)[::-1]
     # Return the names in that order
@@ -51,7 +56,7 @@ if __name__ == "__main__":
         result = ways(val)
         print(f"ways({val}) = {result} (expected: {expected})")
         
-        #actual combinations
+        # actual combinations
         print(f"  Combinations for {val} cents:")
         for nickels in range(val // 5 + 1):
             pennies = val - (nickels * 5)
